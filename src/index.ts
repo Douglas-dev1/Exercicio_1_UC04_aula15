@@ -21,14 +21,14 @@ let senha : string [] = [];
 let senhaFinal : string [] = [];
 /*PREENCHER O ARRAY SENHA COM 2 LETRAS MAIUSCULAS, 2 MINUSCULAS, 2 NUMEROS E 1 CARACTERE ESPECIAL*/
 for(let i = 0; i<2; i++){
-  /*URILIZO A FUNÇÃO RANDON DA BIBLIOTECA MATH */
+  /*UTILIZO A FUNÇÃO RANDON DA BIBLIOTECA MATH */
   senha.push(letrasMaiusculas[Math.floor(Math.random() * letrasMaiusculas.length)]);
   senha.push(letrasMinusculas[Math.floor(Math.random() * letrasMinusculas.length)]);
   senha.push(numeros[Math.floor(Math.random() * numeros.length)]);
 }
 senha.push(caracteresEspeciais[Math.floor(Math.random() * caracteresEspeciais.length)]);
 
-/*PEGO A SENHA GERADA E PASSO SEUS CARACTERES DE FORMA ALEATORIA*/
+/*PEGO A SENHA GERADA E PASSO SEUS CARACTERES E OS 3 ULTIMOS DE FORMA ALEATORIA*/
 senhaFinal.push('[');
 for(let j = 0; j<7; j++){
   senhaFinal.push(senha[j])
@@ -41,7 +41,7 @@ senhaFinal.push(']');
   return senhaFinal.join('');
 
 }
-
+/*UTILIZO UMA FUNÇÃO PARA FAZER UM ARRAY DE ARRAYS, COM AS SENHAS ALEATORIAS*/
 function geraNsenhas(quantidade: number): string[][]{
   let stringFinal: string [][] = [];
   for(let k = 0; k<quantidade; k++){
@@ -51,6 +51,7 @@ function geraNsenhas(quantidade: number): string[][]{
 
   return stringFinal;
 }
+/*PEÇO PARA O USUARIO INFORMAR QUANTAS SENHAS ALETORIAS ELE QUER E IMPRIMO AS SENHAS NA TELA*/
 async function main() {
   for(;;){
     let nSenhas = parseInt(await scanner.question("Quantas senhas quer gerar?: "));
